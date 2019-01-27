@@ -8,6 +8,7 @@ namespace Task1
 {
     class Program
     {
+        //Создаём функцию проверяющую на то что ялвляется ли число простым
         static bool prime(int k)
         {
             if (k == 1) return false;
@@ -26,7 +27,7 @@ namespace Task1
             int[] arr = new int[n];
 
             int cnt = 0;
-
+            //Создали массив для добавлние в него простых чисел
             int[] pr = new int[n];
 
             for(int i = 0; i < n; i++)
