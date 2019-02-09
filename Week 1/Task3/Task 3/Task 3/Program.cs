@@ -24,7 +24,7 @@ namespace Task_3
             {
                 Console.Write("{0} {0} ", arr[i]);
             }
-            Console.ReadLine();//Чтобы консоль не закрывалась сразу
+            Console.ReadKey();//Чтобы консоль не закрывалась сразу
         }
     }
 }
