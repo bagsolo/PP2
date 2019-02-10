@@ -14,21 +14,21 @@ namespace Task1
         static void Main(string[] args)
         {
 
-            string Reverse = "";
+            string Reverse = "";//Создаем пустую строку
 
-            string s;
+            string s;//Создаём строку
 
-            s = Console.ReadLine();
-            for(int i = s.Length-1; i >=0; i--)
+            s = Console.ReadLine();//Вводим строку
+            for(int i = s.Length-1; i >=0; i--)//Делаем обратный массив
             {
-                Reverse += s[i];
+                Reverse += s[i];//Присваем значение массива 
             }
-            if (Reverse == s)
+            if (Reverse == s)//Сравниваем две строки
             {
-                Console.WriteLine("Yes");
+                Console.WriteLine("Yes");//Выводим Yes если строка совпадает
             }
-            else Console.WriteLine("No");
-            Console.ReadKey();
+            else Console.WriteLine("No");// Выводим No если строка не совпадает
+            Console.ReadKey();//Чтобы консоль сразу не закрывалась
            
         }
     }

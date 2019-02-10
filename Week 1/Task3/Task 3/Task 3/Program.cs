@@ -8,23 +8,43 @@ namespace Task_3
 {
     class Program
     {
+        public static int[] Twice(int[] a)
+        {
+            int[] twice = new int[a.Length * 2];//Увеличиваем размер массива в 2 раза
+
+            for(int i = 0; i < a.Length; i++)//Цикл для повтора элементов
+            {
+                int temp = a[i];
+                twice[2 * i] = twice[2 * i + 1] = a[i];
+            }
+            return twice;
+        }
+
+        static void Show(int[] a)
+        {
+            foreach(var x in a)
+            {
+                Console.Write(x + " ");//Выводим числа
+            }
+        }
+
         static void Main(string[] args)
         {
-            int n = int.Parse(Console.ReadLine()); // Вводим n  для определения размера массива
+            int n = int.Parse(Console.ReadLine());//Задаём размер массива
 
-            int[] arr = new int[n];// Присваиваем n и определяем размер массива
+            string[] ss = Console.ReadLine().Split();//Для ввода строки и деления по пробелам
 
-            string[] s = Console.ReadLine().Split();//Ввод чисел через строчный массив и разделение чисел через пробел
+            int[] arr = new int[n];//Массив размера n
 
-            for(int i = 0; i < n; i++)//Парсуем строчный массив в int
+            for(int i= 0; i < n; i++)
             {
-                arr[i] = int.Parse(s[i]);
+                arr[i] = int.Parse(ss[i]);//Переводим со string в int
             }
-            for (int i = 0; i < arr.Length; i++)//Выводим все числа(каждую по отдельности) в массиве 2 раза
-            {
-                Console.Write("{0} {0} ", arr[i]);
-            }
-            Console.ReadKey();//Чтобы консоль не закрывалась сразу
+
+            int[] ans = Twice(arr);//Вызываем функцию
+
+            Show(ans);//Вызываем функция
+            Console.ReadKey();
         }
     }
 }
