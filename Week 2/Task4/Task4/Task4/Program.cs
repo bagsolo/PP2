@@ -11,26 +11,26 @@ namespace TestCopyCreateDelete
     {
         static void Main(string[] args)
         {
-            string FileName = "text.txt";
-            string sourcePath = @"C:\Users\PC\Desktop\PP2\Week 2\Task4\path";
-            string targetPath = @"C:\Users\PC\Desktop\PP2\Week 2\Task4\path1";
+            string FileName = "text.txt";//Даём имя файлу 
+            string sourcePath = @"C:\Users\PC\Desktop\PP2\Week 2\Task4\path";//Путь к папке источнику
+            string targetPath = @"C:\Users\PC\Desktop\PP2\Week 2\Task4\path1";//Путь к папке в которую надо переместить
 
-            string sourceFile = System.IO.Path.Combine(sourcePath, FileName);
-            string destFile = System.IO.Path.Combine(targetPath, FileName);
+            string sourceFile = System.IO.Path.Combine(sourcePath, FileName);//Связываю файл с источником
+            string destFile = System.IO.Path.Combine(targetPath, FileName);//и с папкой в которую надо переместить
 
-            if (!System.IO.Directory.Exists(targetPath))
+            if (!System.IO.Directory.Exists(targetPath))//Услвоия если папки не существует
             {
                 System.IO.Directory.CreateDirectory(targetPath);
             }
-            System.IO.File.Copy(sourceFile, destFile, true);
+            System.IO.File.Copy(sourceFile, destFile, true);//Копируем папку
 
-            if (System.IO.Directory.Exists(sourcePath))
+            if (System.IO.Directory.Exists(sourcePath))//Услвоия для перемещения файла с папки в другую папку
             {
-                string[] files = System.IO.Directory.GetFiles(sourcePath);
-
-                foreach (string s in files)
+                string[] files = System.IO.Directory.GetFiles(sourcePath);//Массив для файла
+                
+                foreach (string s in files)//Для копирования файла и перезаписи если он уже существует
                 {
-                    FileName = System.IO.Path.GetFileName(s);
+                    FileName = System.IO.Path.GetFileName(s);//Извлекаем имя файла из пути
                     destFile = System.IO.Path.Combine(targetPath, FileName);
                     System.IO.File.Copy(s, destFile, true);
                 }
@@ -39,9 +39,9 @@ namespace TestCopyCreateDelete
             {
                 try
                 {
-                    System.IO.File.Delete(@"C:\Users\PC\Desktop\PP2\Week 2\Task4\path\text.txt");
+                    System.IO.File.Delete(@"C:\Users\PC\Desktop\PP2\Week 2\Task4\path\text.txt");//Удаление файла
                 }
-                catch (System.IO.IOException e)
+                catch (System.IO.IOException e)//Для показа ошибки если файла не будет
                 {
                     Console.WriteLine(e.Message);
                     return;
@@ -49,9 +49,9 @@ namespace TestCopyCreateDelete
             }
             else
             {
-                Console.WriteLine("Source path does not exist");
+                Console.WriteLine("Source path does not exist");//Если папки источника не будет существовать
             }
-            Console.ReadKey();
+            Console.ReadKey();//Для того чтобы консоль сразу не закрывалась
         }
     }
 }
