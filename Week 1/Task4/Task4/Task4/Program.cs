@@ -10,26 +10,19 @@ namespace Task4
     {
         static void Main(string[] args)
         {
-            string[,] arr = new string[100, 100];//Создали 2-мерный массив
+            int n = int.Parse(Console.ReadLine());//Задаём высоту нашей треугольника
 
-            int n = Convert.ToInt32(Console.ReadLine());//Переводим с string в int
-
-            for(int i = 0; i < n; i++)
+            for(int i = 1; i <= n; i++)//Цикл для вывода треугольника
             {
-                for(int j = 0; j<= i; j++)
+                for (int j = 1; j <= i; j++)
                 {
-                    arr[i, j] = "[*]";
+                    Console.Write("[*]");
+                   
 
                 }
+                Console.WriteLine();//Делит по блокам
             }
-            for(int i = 0; i <n; i++)
-            {
-                for(int j = 0; j<= i; j++)
-                {
-                    Console.Write(arr[i, j]);//Вывод
-                }
-                Console.WriteLine();
-            }
+
             Console.ReadKey();  
 
         }
