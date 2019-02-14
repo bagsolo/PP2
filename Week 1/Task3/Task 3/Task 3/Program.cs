@@ -8,43 +8,42 @@ namespace Task_3
 {
     class Program
     {
-        public static int[] Twice(int[] a)
+        
+        
+       static int[] DoubleNum(int[] arr)
         {
-            int[] twice = new int[a.Length * 2];//Увеличиваем размер массива в 2 раза
-
-            for(int i = 0; i < a.Length; i++)//Цикл для повтора элементов
+            int[] arrx2 = new int[arr.Length * 2];//Увеличиваем наш массив в 2 раза
+            int cnt = -1;
+            for(int i = 0; i < arr.Length; i++)//Цикл в котором значение первого массива передаются во второй и дублируются
             {
-                int temp = a[i];
-                twice[2 * i] = twice[2 * i + 1] = a[i];
+                cnt++;
+                arrx2[cnt] = arr[i];
+                cnt++;
+                arrx2[cnt] = arr[i];
             }
-            return twice;
-        }
-
-        static void Show(int[] a)
-        {
-            foreach(var x in a)
-            {
-                Console.Write(x + " ");//Выводим числа
-            }
+            return arrx2;//Возвращаем наш ответ
         }
 
         static void Main(string[] args)
         {
-            int n = int.Parse(Console.ReadLine());//Задаём размер массива
-
-            string[] ss = Console.ReadLine().Split();//Для ввода строки и деления по пробелам
-
-            int[] arr = new int[n];//Массив размера n
-
-            for(int i= 0; i < n; i++)
+            int n = int.Parse(Console.ReadLine());//Задаём длинну массиву наших чисел
+            string s = Console.ReadLine();//Вводим наши числа
+            string[] sArr = s.Split();//Вписываем наши числа в массив строк и делим по пробелам
+            int[] dArr = new int[n];//Массив для перевода наших чисел из string в int
+            
+            for(int j = 0; j < n; j++)//Цикл для перевода чисел из типа string в тип int
             {
-                arr[i] = int.Parse(ss[i]);//Переводим со string в int
+                dArr[j] = int.Parse(sArr[j]);
             }
 
-            int[] ans = Twice(arr);//Вызываем функцию
+            int[] Show = DoubleNum(dArr);//Даём значения метода в новый массив
 
-            Show(ans);//Вызываем функция
-            Console.ReadKey();
+            for (int j = 0; j < Show.Length; j++)//Выводим наш ответ через цикл
+            {
+                Console.Write(Show[j] + " ");
+
+            }
+            Console.ReadKey();//Чтобы наша консоль сразу не закрывалась
         }
     }
 }
