@@ -8,36 +8,59 @@ namespace Task2
 {
     class Student
     {
-        public string name;
-        public string id;
-        public int course;
+        public string s;
+        public string s1;
+        public int n;
 
-        public Student(string name, string id, int course)
+        public Student(string s, string s1)
         {
-            this.name = name;
-            this.id = id;
-            this.course = course;
+            this.s = s;
+            this.s1 = s1;
         }
-        public void print()
-        {
-            Console.WriteLine("Имя студента: {0}", name);
-            Console.WriteLine("ID студента: {0}", id);
 
-            Console.WriteLine("Год обучения в следующем году: {0}", course+1);
+        public string ShowName()
+        {
+            return s;
+        }
+
+        public string ShowID()
+        {
+            return s1;
+        }
+
+
+        public Student(int n)
+        {
+            this.n = n;
+        }
+
+        public int ShowYear()
+        {
+            return ++n;
         }
 
     }
 
     class Program
     {
-       
         static void Main(string[] args)
         {
-            Console.WriteLine("Введите на клавиатуре ваше имя, ID, и курс");
-            Student st1 = new Student(Console.ReadLine(), Console.ReadLine(), int.Parse(Console.ReadLine()));
-            st1.print();
-            Console.WriteLine("Для продолжения нажмите 'ENTER'");
+            Student st = new Student(Console.ReadLine(), Console.ReadLine());
+
+            int k = int.Parse(Console.ReadLine());
+
+            Student st1 = new Student(k);
+
+            Console.WriteLine(st.ShowName());
+
+            Console.WriteLine(st.ShowID());
+
+            Console.WriteLine(st1.ShowYear());
+
             Console.ReadKey();
+
+
+
         }
     }
 }
