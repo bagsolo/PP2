@@ -10,51 +10,51 @@ namespace Task2
     class Program
     { 
     
-        static bool Boolean(int k)//Конструктор для проверки простоты чисел
-        { 
-        if (k == 1) return false;//Условаия для того чтобы указать что 1 этоо не простое число
-        for (int i = 2; i < Math.Sqrt(k); i++)//Cоздаём цикл
+        static bool Boolean(int k)//Функция на проверку чисел 
         {
-            if (k % i == 0) return false;//Делимость для не простых чисел
+            if (k == 1)
+                return false;
+            for(int i = 2; i < Math.Sqrt(k); i++)
+            {
+                if (k % i == 0)
+                    return false;
+            }
+            return true;
         }
-        return true;//Если она проходит все условия и не возвращает false то возвращаем значение true
-    }
     
         static void Main(string[] args)
         {
-            FileStream fs = new FileStream(@"C:\Users\PC\Desktop\PP2\Week 2\Task2\input.txt", FileMode.Open, FileAccess.Read);//Пишем путь к нашему input.txt
-            StreamReader sr = new StreamReader(fs);//Считываем файл
+            StreamReader sr = new StreamReader(@"C:\Users\PC\Desktop\PP2\Week 2\Task2\input.txt");//Путь к файлу
 
-            string s = sr.ReadLine();//Передаём считывание в программу
+            string s = sr.ReadLine();
 
-            String[] arr = s.Split();//Создаём массив из этих строк и разделяем их
+            string[] arr = s.Split();
 
-            int[] sum = new int[arr.Length];//Cоздаём массив чисел равный длинне наших строк
+            int[] sum = new int[arr.Length];
 
-
-            for (int i=0; i < sum.Length; i++)//Создаём цикл
+            for(int i = 0; i < sum.Length; i++)//Цикл перевода из строк в числа
             {
-                sum[i] = int.Parse(arr[i]);//Переводим из типа string в тип int
+                sum[i] = int.Parse(arr[i]);
             }
-           // int n = 0;
-            sr.Close();//Закрываем считыватель
-           
-            string prime = "";//Создаём пустую строку
-            for (int i = 0; i < sum.Length; i++)
+
+            sr.Close();
+
+            string prime = "";//Пустая строка
+
+            for(int i = 0; i < sum.Length; i++)//Цикл добавления простых чисел
             {
                 if (Boolean(sum[i]))
                 {
-                    prime +=  sum[i] + " ";//Добавляем к нашей пустой строке простые числа
+                    prime += sum[i] + " ";
                 }
+
             }
-            FileStream fs2 = new FileStream(@"C: \Users\PC\Desktop\PP2\Week 2\Task2\output.txt", FileMode.Open, FileAccess.Write);//Вписываем данные в output.txt
-            StreamWriter sw = new StreamWriter(fs2);//Открываем для вписывания значения в наш output.txt
 
+            StreamWriter sw = new StreamWriter(@"C:\Users\PC\Desktop\PP2\Week 2\Task2\output.txt");//Путь к файлу для выовда
 
-            //prime.Trim();
+            sw.WriteLine("{0} ", prime);//Вывод
+            sw.Close();
 
-             sw.WriteLine( prime+" ");//Вписываем простые числа
-            sw.Close();//Закрываем вписыватель
         }
     }
 }
