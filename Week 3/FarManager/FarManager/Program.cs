@@ -128,7 +128,7 @@ namespace Task1
                     else
                     {
                         Console.Clear();
-                        Console.WriteLine("You Can't go out from the disk"); // Если дошёл до диска С и нажмаешь Escape
+                        Console.WriteLine("You cant leave the disk!!!");//Если дошёл до диска С и нажмаешь Escape
                     }
                 }
                 else if (Cons.Key == ConsoleKey.Backspace) //Удаление

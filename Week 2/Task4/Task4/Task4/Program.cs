@@ -15,10 +15,10 @@ namespace TestCopyCreateDelete
             string sourcePath = @"C:\Users\PC\Desktop\PP2\Week 2\Task4\path";
             string targetPath = @"C:\Users\PC\Desktop\PP2\Week 2\Task4\path1";
 
-            string sourceFile = System.IO.Path.Combine(sourcePath, FileName);
+            string sourceFile = System.IO.Path.Combine(sourcePath, FileName);//Связывание папок и файлов
             string destFile = System.IO.Path.Combine(targetPath, FileName);
 
-            if (System.IO.Directory.Exists(sourcePath))
+            if (System.IO.Directory.Exists(sourcePath))//Функция для копирования
             {
                 string[] files = System.IO.Directory.GetFiles(sourcePath);
                 
@@ -29,7 +29,7 @@ namespace TestCopyCreateDelete
                     System.IO.File.Copy(s, destFile, true);
                 }
             }
-            if(System.IO.File.Exists(@"C:\Users\PC\Desktop\PP2\Week 2\Task4\path\text.txt"))
+            if(System.IO.File.Exists(@"C:\Users\PC\Desktop\PP2\Week 2\Task4\path\text.txt"))//Функция для удаления
             {
                 try
                 {
